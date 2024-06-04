@@ -1,0 +1,45 @@
+
+$(document).ready(function(){
+    $(".pop").hover(
+      function(){$(".overlay").show();},
+      function(){$(".overlay").hide();}
+    );
+});
+
+$(document).on("mouseover", ".popover", function() {
+  $(".overlay").show();
+});
+$(document).on("mouseout", ".popover", function() {
+  $(".overlay").hide();
+});
+
+
+$('#myCarousel').carousel();
+    var winWidth = $(window).innerWidth();
+    $(window).resize(function () {
+
+        if ($(window).innerWidth() < winWidth) {
+            $('.carousel-inner>.item>img').css({
+                'min-width': winWidth, 'width': winWidth
+            });
+        }
+        else {
+            winWidth = $(window).innerWidth();
+            $('.carousel-inner>.item>img').css({
+                'min-width': '', 'width': ''
+            });
+        }
+    });
+
+// optional
+		$('#blogCarousel').carousel({
+				interval: 3000
+		});
+		
+ $('.panel-collapse').on('show.bs.collapse', function () {
+    $(this).siblings('.panel-heading').addClass('active');
+  });
+
+  $('.panel-collapse').on('hide.bs.collapse', function () {
+    $(this).siblings('.panel-heading').removeClass('active');
+  });
